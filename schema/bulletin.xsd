@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:complexType name="island">
+        <xs:all>
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="part" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:boolean">
+                        <xs:pattern value="false" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:complexType name="location-includes" mixed="true">
+        <xs:all>
+            <xs:element name="type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="rest" />
+                        <xs:enumeration value="section" />
+                        <xs:enumeration value="mainland" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="term" type="xs:string" minOccurs="0" />
+            <xs:element name="part" type="xs:string" minOccurs="0" />
+            <xs:element name="objects" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="object" type="xs:string" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:complexType name="location">
+        <xs:all>
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="part" type="xs:boolean" />
+            <xs:element name="includes" type="location-includes" minOccurs="0" />
+            <xs:element name="islands" minOccurs="0" >
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="island" type="island" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:complexType name="location-set" mixed="true">
+        <xs:sequence>
+            <xs:element name="location" type="location" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="signal-areas">
+        <xs:all>
+            <xs:element name="luzon" type="location-set" minOccurs="0" />
+            <xs:element name="visayas" type="location-set" minOccurs="0" />
+            <xs:element name="mindanao" type="location-set" minOccurs="0" />
+        </xs:all>
+    </xs:complexType>
+
+    <xs:simpleType name="cardinal-direction">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="north" />
+            <xs:enumeration value="east" />
+            <xs:enumeration value="west" />
+            <xs:enumeration value="south" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="cyclone-movement" mixed="true">
+        <xs:sequence>
+            <xs:element
+                name="cardinal"
+                type="cardinal-direction"
+                minOccurs="0"
+                maxOccurs="unbounded"
+            />
+            <xs:element name="speed">
+                <xs:simpleType>
+                    <xs:union memberTypes="xs:string xs:positiveInteger" />
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="cyclone">
+        <xs:all>
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="intl-name" type="xs:string" minOccurs="0" />
+            <xs:element name="prevailing" type="xs:boolean" minOccurs="0" />
+            <xs:element name="center">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="latitude" type="xs:double" />
+                        <xs:element name="longitude" type="xs:double" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="movement" type="cyclone-movement" />
+        </xs:all>
+    </xs:complexType>
+
+    <xs:complexType name="bulletin">
+        <xs:all>
+            <xs:element name="title" type="xs:string" />
+            <xs:element name="count" type="xs:positiveInteger" />
+            <xs:element name="url" type="xs:string" />
+            <xs:element name="issued" type="xs:dateTime" />
+            <xs:element name="expires" type="xs:dateTime" />
+            <xs:element name="summary" type="xs:string" />
+            <xs:element name="cyclone" type="cyclone" />
+            <xs:element name="signals">
+                <xs:complexType>
+                    <xs:all>
+                        <xs:element name="tcws1" type="signal-areas" minOccurs="0" />
+                        <xs:element name="tcws2" type="signal-areas" minOccurs="0" />
+                        <xs:element name="tcws3" type="signal-areas" minOccurs="0" />
+                        <xs:element name="tcws4" type="signal-areas" minOccurs="0" />
+                        <xs:element name="tcws5" type="signal-areas" minOccurs="0" />
+                    </xs:all>
+                </xs:complexType>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:element name="bulletin" type="bulletin" />
+
+</xs:schema>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bulletin>
+    <title>Severe Weather Bulletin #13</title>
+    <count>13</count>
+    <url>https://pubfiles.pagasa.dost.gov.ph/tamss/weather/bulletin.pdf</url>
+    <issued>2020-10-31T18:00:00Z</issued>
+    <expires>2020-11-01T00:00:00Z</expires>
+    <summary>"ROLLY" INTENSIFIES INTO SUPER TYPHOON AND MAKES LANDFALL OVER BATO, CATANDUANES</summary>
+    <cyclone>
+        <name>Rolly</name>
+        <intl-name>Goni</intl-name>
+        <prevailing>true</prevailing>
+        <center>
+            <latitude>13.6</latitude>
+            <longitude>124.3</longitude>
+        </center>
+        <movement>
+            <cardinal>west</cardinal>
+            <cardinal>south</cardinal>
+            <cardinal>west</cardinal>
+            <speed>25</speed>
+        </movement>
+    </cyclone>
+    <signals>
+        <tcws5>
+            <luzon>
+                Catanduanes, Albay, and the eastern
+                portion of Camarines Sur (Caramoan,
+                Presentacion, Garchitorena, Lagonoy,
+                Tinambac, Calabanga, Siruma, Tigaon,
+                Bombon, Magarao, Camaligan, Gainza,
+                Canaman, Milaor, Naga City, Minalabac,
+                Balatan, Bula, Pili, Ocampo, Goa, San
+                Jose, Sagnay, Buhi, Iriga City, Baao,
+                Nabua, Bato)
+            </luzon>
+        </tcws5>
+        <tcws4>
+            <luzon>
+                Camarines Norte, the rest of
+                Camarines Sur, the northern portion
+                of Sorsogon (Donsol, Pilar, Castilla,
+                Sorsogon City, Prieto Diaz, Gubat,
+                Barcelona, Juban, Casiguran,
+                Magallanes), Burias Island, the central
+                and southern portions of Quezon
+                (Atimonan, Padre Burgos, Agdangan,
+                Plaridel, Unisan, Gumaca, Pitogo,
+                Macalelon, Catanauan, General Luna,
+                Mulanay, San Francisco, San Andres,
+                San Narciso, Buenavista, Lopez,
+                Guinayangan, Tagkawayan, Calauag,
+                Quezon, Alabat, Perez), Marinduque,
+                and the northern portion of Romblon
+                (Concepcion, Corcuera, Banton)
+            </luzon>
+        </tcws4>
+        <tcws3>
+            <luzon>
+                The rest of Sorsogon, the northern
+                portion of Masbate (Mobo, Masbate
+                City, Milagros, Uson, Baleno, Aroroy,
+                Mandaon) including Ticao Island, the
+                rest of Quezon including Polillo
+                Island, Laguna, Batangas, Cavite,
+                Rizal, Metro Manila, Bulacan,
+                Pampanga, Bataan, the southern
+                portion of Zambales (San Marcelino,
+                San Felipe, Olongapo City, Subic,
+                Castillejos, San Antonio, San Narciso,
+                Botolan, Cabangan), the central portion
+                of Romblon (Calatrava, San Andres,
+                San Agustin, Romblon, Magdiwang, San
+                Fernando, Cajidiocan), the northern
+                portion of Occidental Mindoro
+                (Sablayan, Mamburao, Santa Cruz, Abra
+                de Ilog, Paluan) including Lubang
+                Island, and the northern portion of
+                Oriental Mindoro (Bongabong, Gloria,
+                Bansud, Pinamalayan, Socorro, Pola,
+                Victoria, Naujan, Calapan City, Baco,
+                San Teodoro, Puerto Galera)
+            </luzon>
+            <visayas>
+                Northern Samar
+            </visayas>
+        </tcws3>
+        <tcws2>
+            <luzon>
+                Aurora, Nueva Vizcaya,
+                Quirino, Benguet, La
+                Union, Pangasinan, the
+                rest of Zambales,
+                Tarlac, Nueva Ecija, the
+                rest of Oriental
+                Mindoro, the rest of
+                Occidental Mindoro, the
+                rest of Romblon, and
+                the rest of Masbate
+            </luzon>
+            <visayas>
+                The northern portion of Samar
+                (Catbalogan City, Jiabong, Motiong,
+                Paranas, Hinabangan, San Sebastian,
+                Tarangnan, Pagsanghan, San Jorge,
+                San Jose de Buan, Matuguinao,
+                Gandara, Santa Margarita, Calbayog
+                City, Santo Nino, Almagro, Tagapul-An),
+                the northern portion of Eastern
+                Samar (San Julian, Sulat, Taft, Can-
+                Avid, Dolores, Maslog, Oras, San
+                Policarpo, Arteche, Jipapad), the
+                extreme northern portion of Antique
+                (Pandan, Libertad, Caluya), and the
+                northwestern portion of Aklan
+                (Buruanga, Malay, Nabas, Ibajay)
+            </visayas>
+        </tcws2>
+        <tcws1>
+            <luzon>
+                Mainland Cagayan,
+                Isabela, Apayao,
+                Kalinga, Mountain
+                Province, Ifugao, Abra,
+                Ilocos Norte, Ilocos Sur,
+                and Calamian Islands
+            </luzon>
+            <visayas>
+                The rest of the northern portion of
+                Antique (Sebaste, Culasi, Tibiao,
+                Barbaza, Laua-An), the rest of Aklan,
+                Capiz, the northern portion of Iloilo
+                (Lemery, Sara, Concepcion, San
+                Dionisio, Batad, Estancia, Balasan,
+                Carles), the northern portion of Cebu
+                (San Remigio, Bogo City, Medellin,
+                Daanbantayan) including Bantayan
+                Islands, Biliran, the rest of Samar, the
+                rest of Eastern Samar, and the
+                northern portion of Leyte (San Isidro,
+                Tabango, Villaba, Matag-Ob, Palompon,
+                Ormoc City, Pastrana, Palo, Calubian,
+                Leyte, Kananga, Capoocan, Carigara,
+                Jaro, Tunga, Barugo, Alangalang, Santa
+                Fe, Tacloban City, Babatngon, San
+                Miguel)
+            </visayas>
+        </tcws1>
+    </signals>
+</bulletin>
