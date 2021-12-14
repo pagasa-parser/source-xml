@@ -11,7 +11,7 @@ import {
     PagasaParserSource
 } from "pagasa-parser";
 import * as path from "path";
-import Landmass from "pagasa-parser/build/typedefs/Area";
+import {Landmass} from "pagasa-parser/build/typedefs/Area";
 
 export default class PagasaParserXMLSource extends PagasaParserSource {
 
