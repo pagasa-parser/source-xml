@@ -1,6 +1,6 @@
 {
     "name": "@pagasa-parser/source-xml",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Allows parsing of specifically-made XML files into pagasa-parser Bulletins.",
     "main": "build/PagasaParserXMLSource.js",
     "scripts": {
