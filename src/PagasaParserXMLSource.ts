@@ -18,7 +18,7 @@ export default class PagasaParserXMLSource extends PagasaParserSource {
     static readonly schema =
         xsd.parseFile(path.join(__dirname, "..", "schema", "bulletin.xsd"));
 
-    private readonly $ : cheerio.Root;
+    private readonly $: cheerio.Root;
 
     /**
      * Loads in the source. This will validate the given XML and check if it's
@@ -27,7 +27,7 @@ export default class PagasaParserXMLSource extends PagasaParserSource {
      * @param data The data to read
      * @param options Additional options for Cheerio.
      */
-    constructor(data : string | Buffer, options?: cheerio.CheerioParserOptions) {
+    constructor(data: string | Buffer, options?: cheerio.CheerioParserOptions) {
         super();
         const validationErrors = PagasaParserXMLSource.schema.validate(data.toString());
         if (validationErrors != null) {
@@ -42,7 +42,7 @@ export default class PagasaParserXMLSource extends PagasaParserSource {
         );
     }
 
-    parse() : Bulletin {
+    parse(): Bulletin {
         return {
             info: this.parseBulletinInfo(),
             cyclone: this.parseCycloneInfo(),
@@ -56,7 +56,7 @@ export default class PagasaParserXMLSource extends PagasaParserSource {
         };
     }
 
-    protected parseCycloneInfo() : Cyclone {
+    protected parseCycloneInfo(): Cyclone {
         const $ = this.$;
 
         const cyclone = $("bulletin > cyclone");
@@ -73,14 +73,14 @@ export default class PagasaParserXMLSource extends PagasaParserSource {
         const centerLongitude = cycloneCenter.find("longitude");
 
         let movementDirection = "";
-        let movementDirectionCardinals = cycloneMovement.find("cardinal");
+        const movementDirectionCardinals = cycloneMovement.find("cardinal");
         if (movementDirectionCardinals.length > 0) {
             movementDirectionCardinals.each((i, e) => {
                 const direction = $(e).text();
                 movementDirection += direction[0].toUpperCase();
             });
         }
-        let movementSpeed = cycloneMovement.find("speed").text();
+        const movementSpeed = cycloneMovement.find("speed").text();
 
         return <Cyclone>{
             name: cycloneName.text(),
@@ -97,7 +97,7 @@ export default class PagasaParserXMLSource extends PagasaParserSource {
         };
     }
 
-    protected parseBulletinInfo() : BulletinInfo {
+    protected parseBulletinInfo(): BulletinInfo {
         const $ = this.$;
 
         const infoTitle = $("bulletin > title");
@@ -117,7 +117,7 @@ export default class PagasaParserXMLSource extends PagasaParserSource {
         };
     }
 
-    protected parseSignal(signal : 1 | 2 | 3 | 4 | 5) : TCWSLevel {
+    protected parseSignal(signal: 1 | 2 | 3 | 4 | 5): TCWSLevel {
         if (this.$(`signals > tcws${signal}`).length === 0)
             return null;
 
@@ -132,7 +132,7 @@ export default class PagasaParserXMLSource extends PagasaParserSource {
         };
     }
 
-    protected parseSignalAreas(signal : 1 | 2 | 3 | 4 | 5, landmass : Landmass) : Area[] {
+    protected parseSignalAreas(signal: 1 | 2 | 3 | 4 | 5, landmass: Landmass): Area[] {
         const $ = this.$;
 
         const signalAreas = $(`signals > tcws${signal}`);
@@ -150,13 +150,13 @@ export default class PagasaParserXMLSource extends PagasaParserSource {
             signalLocations.each((i, e) => {
                 const location = $(e);
 
-                const locationData : Record<string, any> = {};
+                const locationData: Record<string, any> = {};
 
                 locationData["name"] = location.find("name").text();
                 locationData["part"] = location.find("part").text() === "true";
                 if (locationData["part"]) {
                     locationData["includes"] = (() => {
-                        const includes : Record<string, any> = {};
+                        const includes: Record<string, any> = {};
 
                         includes["type"] = location.find("includes > type").text();
                         includes["term"] = location.find("includes > term").text();

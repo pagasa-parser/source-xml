@@ -3,6 +3,15 @@
     "version": "1.0.1",
     "description": "Allows parsing of specifically-made XML files into pagasa-parser Bulletins.",
     "main": "build/PagasaParserXMLSource.js",
+    "types": "build/PagasaParserXMLSource.d.ts",
+    "files": [
+        "build",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "package.json",
+        "package-lock.json",
+        "README.md"
+    ],
     "scripts": {
         "build": "tsc",
         "test": "jest",
@@ -10,7 +19,9 @@
         "coverage:full": "jest --coverage --collectCoverageFrom=src/**/*.{js,jsx,ts,tsx}",
         "coverage:minimal": "jest --coverage",
         "reignore": "cat .gitignore > .npmignore && cat .gitignore.npmignore >> .npmignore",
-        "prepack": "npm run build && npm run reignore"
+        "prepack": "npm run clean && npm run build",
+        "clean": "rimraf build",
+        "prepare": "husky install"
     },
     "repository": {
         "type": "git",
@@ -40,7 +51,9 @@
         "@typescript-eslint/eslint-plugin": "^4.6.0",
         "cat": "^0.2.0",
         "eslint": "^7.12.1",
+        "husky": "^7.0.4",
         "jest": "^27.1.0",
+        "rimraf": "^3.0.2",
         "ts-jest": "^27.0.5",
         "ts-node": "^10.2.1",
         "typescript": "^4.4.2"

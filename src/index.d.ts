@@ -1,6 +1,7 @@
+/* eslint-disable */
 declare module "libxmljs2-xsd" {
 
-    import { Document, ParserOptions } from "libxmljs2";
+    import {Document, ParserOptions} from "libxmljs2";
 
     export class Schema {
         constructor(schemaDoc: Document, schemaObj: Document);
