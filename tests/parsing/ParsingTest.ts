@@ -4,13 +4,17 @@ import * as path from "path";
 
 describe("parsing tests", () => {
 
+    const outDir = path.join(__dirname, "..", "out");
+    if (!fs.existsSync(outDir))
+        fs.mkdirSync(outDir);
+
     test("near-original bulletin", () => {
         const source = new PagasaParserXMLSource(
             fs.readFileSync(path.join(__dirname, "..", "xml", "LowLevel.xml"))
         );
 
         fs.writeFileSync(
-            path.join(__dirname, "..", "out", "LowLevel.json"),
+            path.join(outDir, "LowLevel.json"),
             JSON.stringify(source.parse())
         );
     });
@@ -21,7 +25,7 @@ describe("parsing tests", () => {
         );
 
         fs.writeFileSync(
-            path.join(__dirname, "..", "out", "HighLevel.json"),
+            path.join(outDir, "HighLevel.json"),
             JSON.stringify(source.parse())
         );
     });
